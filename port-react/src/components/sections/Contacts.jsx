@@ -123,25 +123,22 @@ export default function Contacts() {
                     </div>
                 </div>
                 
-                {/* SVG Map mock - Minimalist Light Theme */}
+                {/* Real Google Map Embed */}
                 <div style={{ background: '#e0f2fe', borderRadius: '16px', position: 'relative', overflow: 'hidden', height: '350px' }}>
-                    <div style={{ position: 'absolute', top: '30px', left: '30px', background: '#ffffff', padding: '20px', borderRadius: '12px', zIndex: 10, boxShadow: 'var(--shadow)', maxWidth: '280px' }}>
+                    <div style={{ position: 'absolute', top: '30px', left: '30px', background: '#ffffff', padding: '20px', borderRadius: '12px', zIndex: 10, boxShadow: 'var(--shadow)', maxWidth: '280px', pointerEvents: 'none' }}>
                         <h4 style={{ margin: '0 0 8px 0', color: 'var(--text-primary)', fontSize: '1.1rem' }}>{t('map_title')}</h4>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>{t('map_desc')}</p>
                     </div>
-                    {/* Representação super limpa de costa e água */}
-                    <svg viewBox="0 0 1000 300" style={{ width: '100%', height: '100%', display: 'block' }}>
-                        {/* Massa de Terra Branca */}
-                        <path d="M 0 300 L 0 150 Q 200 130 300 180 T 600 170 T 800 210 T 1000 160 L 1000 300 Z" fill="#ffffff" />
-                        {/* Linha costeira */}
-                        <path d="M 0 150 Q 200 130 300 180 T 600 170 T 800 210 T 1000 160" fill="none" stroke="#bae6fd" strokeWidth="4" />
-                        {/* Rio Congo saindo para o mar */}
-                        <path d="M 300 0 Q 320 80 300 130 T 260 170 T 200 180 L 0 160" fill="none" stroke="#e0f2fe" strokeWidth="20" strokeLinecap="round"/>
-                        {/* Indicador de Porto do Soyo */}
-                        <circle cx="250" cy="170" r="6" fill="var(--primary)" />
-                        <circle cx="250" cy="170" r="14" fill="var(--primary)" opacity="0.2" />
-                        <text x="270" y="175" fill="var(--text-primary)" fontWeight="bold" fontSize="14">Porto do Soyo</text>
-                    </svg>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63630.93006427339!2d12.32766863641323!3d-6.13426743840742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a66ff2f99a38f37%3A0xc665123fc8ff9d77!2sSoyo%2C%20Angola!5e0!3m2!1spt-PT!2spt!4v1700000000000!5m2!1spt-PT!2spt" 
+                        width="100%" 
+                        height="100%" 
+                        style={{ border: 0, display: 'block' }} 
+                        allowFullScreen="" 
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Porto do Soyo Location"
+                    ></iframe>
                 </div>
             </div>
         </section>
