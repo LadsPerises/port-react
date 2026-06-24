@@ -1,0 +1,91 @@
+import React from 'react';
+import { useTranslation } from '../../contexts/LanguageContext';
+
+export default function Hero() {
+    const { t } = useTranslation();
+
+    return (
+        <section id="inicio" style={{
+            position: 'relative',
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end', /* Aligned to bottom like reference */
+            alignItems: 'flex-start',
+            textAlign: 'left',
+            color: '#fff',
+            overflow: 'hidden',
+            padding: '0 5% 80px 5%' /* Padding at the bottom */
+        }}>
+            {/* Fullscreen Background Image */}
+            <div style={{
+                position: 'absolute',
+                top: 0, left: 0, width: '100%', height: '100%',
+                backgroundImage: "url('/images/hero_seaport.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                zIndex: -2,
+                backgroundColor: '#143c79'
+            }}></div>
+
+            {/* Bottom-Up Gradient Overlay (Project Palette) */}
+            {/* This replaces the heavy solid overlay to let the image shine at the top */}
+            <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, width: '100%', height: '70%',
+                background: 'linear-gradient(to top, rgba(20, 60, 121, 0.95) 0%, rgba(20, 60, 121, 0.6) 40%, transparent 100%)',
+                zIndex: -1
+            }}></div>
+
+            <div className="container" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1000px', margin: 0 }}>
+                
+                {/* Main Headline (Massive, uppercase, bold) */}
+                <h1 style={{
+                    fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                    fontWeight: '900',
+                    lineHeight: '1.1',
+                    textTransform: 'uppercase',
+                    fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+                    margin: '0',
+                    letterSpacing: '-1px',
+                    textShadow: '0 4px 15px rgba(0,0,0,0.6)'
+                }}>
+                    {t('hero_title_1')} <br />
+                    {t('hero_title_2')}
+                </h1>
+                
+                {/* Thin Colored Separator Line */}
+                <div style={{
+                    width: '100%',
+                    height: '3px',
+                    backgroundColor: '#0086e1', /* Azul claro oficial */
+                    marginTop: '30px',
+                    marginBottom: '30px',
+                    boxShadow: '0 2px 5px rgba(0,0,0,0.3)'
+                }}></div>
+
+                {/* Solid Industrial Button */}
+                <a href="#servicos" style={{
+                    display: 'inline-block',
+                    background: '#0086e1', /* Azul claro oficial */
+                    color: '#ffffff',
+                    fontWeight: '800',
+                    textTransform: 'uppercase',
+                    padding: '16px 40px',
+                    textDecoration: 'none',
+                    fontSize: '1.05rem',
+                    letterSpacing: '2px',
+                    transition: 'all 0.3s ease',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 15px rgba(0, 134, 225, 0.4)'
+                }}
+                onMouseOver={e => e.target.style.background = '#143c79'} /* Azul escuro no hover */
+                onMouseOut={e => e.target.style.background = '#0086e1'}
+                >
+                    Leia Mais
+                </a>
+            </div>
+        </section>
+    );
+}
