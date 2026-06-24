@@ -3,21 +3,21 @@
    ========================================================================== */
 
 :root {
-    /* Tema Escuro (Padrão) */
-    --bg-main: #020b1e;
-    --bg-card: rgba(10, 25, 47, 0.7);
-    --bg-card-hover: rgba(16, 37, 66, 0.9);
-    --bg-nav: rgba(2, 11, 30, 0.85);
-    --border-color: rgba(0, 242, 254, 0.15);
-    --border-hover: rgba(0, 242, 254, 0.4);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --accent-glow: rgba(0, 242, 254, 0.1);
+    /* Tema Claro e Minimalista (Novo Padrão) */
+    --bg-main: #ffffff;
+    --bg-card: #f8fafc;
+    --bg-card-hover: #f1f5f9;
+    --bg-nav: rgba(255, 255, 255, 0.95);
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --text-primary: #143c79; /* Azul Escuro oficial para o texto principal */
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --accent-glow: rgba(0, 134, 225, 0.05);
     
     /* Cores Universais */
     --primary: #0086e1;
-    --primary-grad: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    --primary-grad: linear-gradient(135deg, #0086e1 0%, #00f2fe 100%);
     --accent-cyan: #00f2fe;
     --accent-blue: #4facfe;
     --accent-orange: #fda085;
@@ -31,24 +31,9 @@
     
     /* Transições & Sombras */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
-    --shadow-glow: 0 0 20px rgba(0, 242, 254, 0.3);
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    --shadow-glow: 0 10px 25px rgba(0, 134, 225, 0.15);
     --border-radius: 12px;
-}
-
-/* Variáveis para Tema Claro */
-body.light-theme {
-    --bg-main: #f1f5f9;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --bg-card-hover: rgba(255, 255, 255, 0.98);
-    --bg-nav: rgba(241, 245, 249, 0.9);
-    --border-color: rgba(0, 134, 225, 0.15);
-    --border-hover: rgba(0, 134, 225, 0.4);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-    --accent-glow: rgba(0, 134, 225, 0.05);
-    --shadow: 0 10px 30px -10px rgba(148, 163, 184, 0.3);
 }
 
 /* ==========================================================================

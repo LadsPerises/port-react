@@ -28,12 +28,11 @@ export default function Hero() {
                 backgroundColor: '#143c79'
             }}></div>
 
-            {/* Bottom-Up Gradient Overlay (Project Palette) */}
-            {/* This replaces the heavy solid overlay to let the image shine at the top */}
+            {/* Overlay to darken the whole image and provide text contrast at the bottom */}
             <div style={{
                 position: 'absolute',
-                bottom: 0, left: 0, width: '100%', height: '70%',
-                background: 'linear-gradient(to top, rgba(20, 60, 121, 0.95) 0%, rgba(20, 60, 121, 0.6) 40%, transparent 100%)',
+                top: 0, left: 0, width: '100%', height: '100%',
+                background: 'linear-gradient(to top, rgba(15, 45, 90, 0.98) 0%, rgba(15, 45, 90, 0.8) 50%, rgba(2, 11, 30, 0.65) 100%)',
                 zIndex: -1
             }}></div>
 

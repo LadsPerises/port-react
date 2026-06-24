@@ -44,50 +44,84 @@ export default function Terminals() {
     const activeTerminal = terminalsData[activeIndex];
 
     return (
-        <section id="terminais" className="section-padding terminals-section" style={{ padding: '80px 0' }}>
-            <div className="container">
-                <div className="section-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                    <span className="section-tag" style={{ color: 'var(--accent-cyan)' }}>{t('terminals_tag')}</span>
-                    <h2 className="section-title text-white">{t('terminals_title')}</h2>
-                    <div className="title-underline" style={{ width: '60px', height: '4px', background: 'var(--primary-grad)', margin: '15px auto 0' }}></div>
+        <section id="terminais" style={{ padding: '120px 0', background: 'var(--bg-main)' }}>
+            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
+                
+                {/* Header Minimalista (Alinhado à esquerda como em Serviços) */}
+                <div style={{ marginBottom: '60px', maxWidth: '800px' }}>
+                    <span style={{ color: 'var(--primary)', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '15px', display: 'block' }}>
+                        {t('terminals_tag')}
+                    </span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: '700', margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', letterSpacing: '-1px', color: 'var(--text-primary)', lineHeight: '1.2' }}>
+                        {t('terminals_title')}
+                    </h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '40px' }}>
-                    <div className="terminal-selector" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
+                    
+                    {/* Lista de Terminais (Apenas texto limpo, sem caixas) */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         {terminalsData.map((term, idx) => (
                             <button 
                                 key={idx} 
                                 onClick={() => setActiveIndex(idx)}
-                                style={{ padding: '20px', textAlign: 'left', background: activeIndex === idx ? 'var(--accent-glow)' : 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px', cursor: 'pointer' }}
+                                style={{ 
+                                    padding: '15px 0', 
+                                    textAlign: 'left', 
+                                    background: 'transparent', 
+                                    border: 'none',
+                                    borderBottom: '1px solid var(--border-color)',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center'
+                                }}
                             >
-                                <span style={{ display: 'block', fontSize: '1.2rem', color: activeIndex === idx ? 'var(--accent-cyan)' : 'var(--text-primary)' }}>{term.name}</span>
+                                <span style={{ 
+                                    fontSize: '1.2rem', 
+                                    fontWeight: activeIndex === idx ? '700' : '400',
+                                    color: activeIndex === idx ? 'var(--primary)' : 'var(--text-secondary)',
+                                    transition: 'color 0.3s ease'
+                                }}>
+                                    {term.name}
+                                </span>
+                                {activeIndex === idx && (
+                                    <span style={{ color: 'var(--primary)' }}>&rarr;</span>
+                                )}
                             </button>
                         ))}
                     </div>
 
-                    <div className="terminal-details" style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                        <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>{activeTerminal.name}</h3>
-                        <p style={{ color: 'var(--text-secondary)', marginBottom: '30px', lineHeight: 1.6 }}>{activeTerminal.desc[lang]}</p>
+                    {/* Detalhes do Terminal (Fundo limpo, tipografia forte) */}
+                    <div style={{ padding: '20px 0' }}>
+                        <h3 style={{ fontSize: '2.2rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px', letterSpacing: '-0.5px' }}>
+                            {activeTerminal.name}
+                        </h3>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '40px', lineHeight: 1.8 }}>
+                            {activeTerminal.desc[lang]}
+                        </p>
                         
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                            <div>
-                                <span style={{ color: 'var(--accent-cyan)', fontSize: '0.9rem' }}>{t('t_draft')}</span>
-                                <p style={{ fontWeight: 'bold' }}>{activeTerminal.draft}</p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
+                            <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '15px' }}>
+                                <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{t('t_draft')}</span>
+                                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', margin: 0 }}>{activeTerminal.draft}</p>
                             </div>
-                            <div>
-                                <span style={{ color: 'var(--accent-cyan)', fontSize: '0.9rem' }}>{t('t_berths')}</span>
-                                <p style={{ fontWeight: 'bold' }}>{activeTerminal.cais}</p>
+                            <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '15px' }}>
+                                <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{t('t_berths')}</span>
+                                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', margin: 0 }}>{activeTerminal.cais}</p>
                             </div>
-                            <div>
-                                <span style={{ color: 'var(--accent-cyan)', fontSize: '0.9rem' }}>{t('t_operator')}</span>
-                                <p style={{ fontWeight: 'bold' }}>{activeTerminal.op}</p>
+                            <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '15px' }}>
+                                <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{t('t_operator')}</span>
+                                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', margin: 0 }}>{activeTerminal.op}</p>
                             </div>
-                            <div>
-                                <span style={{ color: 'var(--accent-cyan)', fontSize: '0.9rem' }}>{t('t_cargo')}</span>
-                                <p style={{ fontWeight: 'bold' }}>{activeTerminal.cargo}</p>
+                            <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '15px' }}>
+                                <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{t('t_cargo')}</span>
+                                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', margin: 0 }}>{activeTerminal.cargo}</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
