@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaArrowRight, FaTag, FaSearch } from 'react-icons/fa';
 
 const newsData = [
@@ -66,6 +67,7 @@ const categories = {
 
 export default function News() {
     const { lang } = useTranslation();
+    const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState(0);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -205,15 +207,17 @@ export default function News() {
                                     <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: '35px' }}>
                                         {featured.excerpt[lang]}
                                     </p>
-                                    <button style={{
-                                        display: 'inline-flex', alignItems: 'center', gap: '10px',
-                                        background: 'var(--primary)', color: '#fff', border: 'none',
-                                        padding: '14px 28px', borderRadius: '10px', cursor: 'pointer',
-                                        fontWeight: '700', fontSize: '1rem', alignSelf: 'flex-start',
-                                        transition: 'all 0.3s'
-                                    }}
-                                    onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,134,225,0.4)'; }}
-                                    onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                                    <button
+                                        onClick={() => navigate(`/noticias/${featured.id}`)}
+                                        style={{
+                                            display: 'inline-flex', alignItems: 'center', gap: '10px',
+                                            background: 'var(--primary)', color: '#fff', border: 'none',
+                                            padding: '14px 28px', borderRadius: '10px', cursor: 'pointer',
+                                            fontWeight: '700', fontSize: '1rem', alignSelf: 'flex-start',
+                                            transition: 'all 0.3s'
+                                        }}
+                                        onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,134,225,0.4)'; }}
+                                        onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
                                     >
                                         {lang === 'pt' ? 'Ler Mais' : 'Read More'} <FaArrowRight />
                                     </button>
@@ -225,7 +229,7 @@ export default function News() {
                         {rest.length > 0 && (
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '30px' }}>
                                 {rest.map(article => (
-                                    <article key={article.id} style={{
+                                    <article key={article.id} onClick={() => navigate(`/noticias/${article.id}`)} style={{
                                         background: 'var(--bg-card)',
                                         border: '1px solid var(--border-color)',
                                         borderRadius: '20px',

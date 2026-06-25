@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Quote from './pages/Quote';
 import News from './pages/News';
+import NewsDetail from './pages/NewsDetail';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/cotacao" element={<Quote />} />
               <Route path="/noticias" element={<News />} />
+              <Route path="/noticias/:id" element={<NewsDetail />} />
             </Routes>
             <Footer />
           </div>
