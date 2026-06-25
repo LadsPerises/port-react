@@ -1,8 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../contexts/LanguageContext';
 
 export default function Footer() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const goToSection = (id) => {
+        navigate('/');
+        window.setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    };
+
+    const footerLinkStyle = {
+        color: '#94a3b8',
+        textDecoration: 'none',
+        transition: 'color 0.3s',
+        background: 'transparent',
+        border: 'none',
+        padding: 0,
+        cursor: 'pointer',
+        font: 'inherit'
+    };
 
     return (
         <footer style={{ padding: '80px 0 30px', background: '#020b1e', borderTop: 'none' }}>
@@ -16,19 +36,19 @@ export default function Footer() {
                         <h4 style={{ color: '#ffffff', marginBottom: '25px', fontSize: '1.1rem', fontWeight: '700' }}>{t('footer_links')}</h4>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                             <li style={{ marginBottom: '15px' }}>
-                                <a href="/#inicio" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
+                                <button type="button" onClick={() => goToSection('inicio')} style={footerLinkStyle} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
                                     {t('f_link_home')}
-                                </a>
+                                </button>
                             </li>
                             <li style={{ marginBottom: '15px' }}>
-                                <a href="/#servicos" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
+                                <button type="button" onClick={() => goToSection('servicos')} style={footerLinkStyle} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
                                     {t('f_link_serv')}
-                                </a>
+                                </button>
                             </li>
                             <li style={{ marginBottom: '15px' }}>
-                                <a href="/#contactos" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
+                                <button type="button" onClick={() => goToSection('contactos')} style={footerLinkStyle} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = '#94a3b8'}>
                                     {t('f_link_cont')}
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>

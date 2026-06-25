@@ -57,10 +57,10 @@ export default function Services() {
                 {/* Centered Header imitating the reference */}
                 <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px' }}>
                     <span style={{ color: 'var(--primary)', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.8rem', marginBottom: '15px', display: 'block' }}>
-                        Nossos Serviços
+                        {t('services_tag')}
                     </span>
                     <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: '700', margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', letterSpacing: '-1px', color: 'var(--text-primary)', lineHeight: '1.2' }}>
-                        Otimize as Suas Operações <br /> Com os Nossos Melhores Serviços
+                        {t('services_title')}
                     </h2>
                 </div>
 
@@ -118,7 +118,7 @@ export default function Services() {
                             </h3>
                             
                             <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontWeight: '500' }}>
-                                Ver detalhes
+                                {t('serv_more')}
                             </span>
                         </div>
                     ))}
@@ -145,11 +145,11 @@ export default function Services() {
                         onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
                     >
                         <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.5px' }}>
-                            +4 <br/> Mais
+                            +4 <br/> {lang === 'pt' ? 'Mais' : 'More'}
                         </h3>
                         
                         <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8rem', fontWeight: '500' }}>
-                            Soluções Personalizadas
+                            {lang === 'pt' ? 'Soluções Personalizadas' : 'Custom Solutions'}
                         </span>
                     </div>
 

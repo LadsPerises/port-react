@@ -82,7 +82,7 @@ export default function Hero() {
                 onMouseOver={e => e.target.style.background = '#143c79'} /* Azul escuro no hover */
                 onMouseOut={e => e.target.style.background = '#0086e1'}
                 >
-                    Leia Mais
+                    {t('hero_btn_explore')}
                 </a>
             </div>
         </section>

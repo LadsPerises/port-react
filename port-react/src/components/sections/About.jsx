@@ -23,6 +23,7 @@ export default function About() {
                         
                         <div style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.1rem', fontWeight: '400', marginBottom: '40px' }}>
                             <p>{t('company_p1')}</p>
+                            <p>{t('company_p2')}</p>
                         </div>
 
                         {/* Bottom 2x2 Grid (Stats / Highlights) - Moved to Left */}
