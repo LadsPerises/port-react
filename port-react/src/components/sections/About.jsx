@@ -49,8 +49,8 @@ export default function About() {
 
                             {/* Card 4 */}
                             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'var(--shadow)' }}>
-                                <span style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '5px', lineHeight: '1' }}>ADMIN</span>
-                                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{t('board_pca')}</span>
+                                <span style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '5px', lineHeight: '1.3' }}>Dr. Fernando Carlos<br/>de Almeida Dias</span>
+                                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600', marginTop: '6px' }}>Presidente do Conselho<br/>de Administração</span>
                             </div>
 
                         </div>
