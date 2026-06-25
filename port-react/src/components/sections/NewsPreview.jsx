@@ -16,8 +16,7 @@ const previewNews = [
             en: 'The quarter marked a new operational peak, with increased calls at the Central Port and Kwanda Logistics Base.'
         },
         date: { pt: '15 Março 2026', en: 'March 15, 2026' },
-        icon: <FaShip />,
-        gradient: 'linear-gradient(135deg, #0086e1 0%, #00f2fe 100%)'
+        image: '/images/Gemini_Generated_Image_pgn6dpgn6dpgn6dp.jpg'
     },
     {
         id: 2,
@@ -31,8 +30,7 @@ const previewNews = [
             en: 'The operation expands Soyo’s link to international markets and strengthens Angola’s role as a strategic gas supplier.'
         },
         date: { pt: '02 Fevereiro 2026', en: 'February 02, 2026' },
-        icon: <FaBolt />,
-        gradient: 'linear-gradient(135deg, #1a2e56 0%, #0052a3 100%)'
+        image: '/images/Gemini_Generated_Image_pg2lw2pg2lw2pg2l.jpg'
     },
     {
         id: 3,
@@ -46,8 +44,7 @@ const previewNews = [
             en: 'The initiative introduces environmental measures to reduce carbon footprint and improve maritime waste collection.'
         },
         date: { pt: '20 Janeiro 2026', en: 'January 20, 2026' },
-        icon: <FaLeaf />,
-        gradient: 'linear-gradient(135deg, #0a3d62 0%, #4facfe 100%)'
+        image: '/images/Gemini_Generated_Image_pi8wiipi8wiipi8w.jpg'
     }
 ];
 
@@ -96,9 +93,12 @@ export default function NewsPreview() {
                                 e.currentTarget.style.boxShadow = 'var(--shadow)';
                             }}
                         >
-                            <div style={{ height: '210px', background: item.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '3rem', position: 'relative' }}>
-                                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 25% 20%, rgba(255,255,255,0.24), transparent 36%)' }} />
-                                <div style={{ position: 'relative', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.28))' }}>{item.icon}</div>
+                            <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                                <img src={item.image} alt={item.title[lang]}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                                    onMouseOver={e => e.target.style.transform = 'scale(1.05)'}
+                                    onMouseOut={e => e.target.style.transform = 'scale(1)'}
+                                />
                             </div>
                             <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                 <span style={{ alignSelf: 'flex-start', background: 'var(--accent-glow)', color: 'var(--accent-cyan)', border: '1px solid var(--border-color)', borderRadius: '999px', padding: '5px 12px', fontSize: '0.78rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
