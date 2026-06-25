@@ -64,11 +64,11 @@ export default function Services() {
                     </h2>
                 </div>
 
-                {/* 4-Column Grid imitating the reference */}
+                {/* 3-Column Grid */}
                 <div className="responsive-services-grid" style={{ 
                     display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
-                    gap: '20px' 
+                    gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', 
+                    gap: '30px' 
                 }}>
                     {/* The 6 Real Services */}
                     {services.map(srv => (
@@ -113,46 +113,19 @@ export default function Services() {
                                 {srv.icon}
                             </div>
                             
-                            <h3 style={{ fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-primary)', marginBottom: '8px', letterSpacing: '-0.3px', lineHeight: '1.4' }}>
+                            <h3 style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '12px', letterSpacing: '-0.3px', lineHeight: '1.4' }}>
                                 {t(srv.titleKey)}
                             </h3>
                             
-                            <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontWeight: '500' }}>
-                                {t('serv_more')}
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px', flex: 1 }}>
+                                {t(srv.descKey)}
+                            </p>
+                            
+                            <span style={{ color: 'var(--primary)', fontSize: '0.9rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                {t('serv_more')} <span style={{ fontSize: '0.8em' }}>→</span>
                             </span>
                         </div>
                     ))}
-
-                    {/* Placeholder Card (7th slot to match 4x2 grid) */}
-                    <div style={{ display: 'none' }} className="placeholder-desktop-only"></div>
-
-                    {/* Solid Action Card (8th slot mapped to project palette) */}
-                    <div 
-                        className="responsive-service-card responsive-service-cta"
-                        onClick={() => document.getElementById('contactos')?.scrollIntoView({ behavior: 'smooth' })}
-                        style={{ 
-                            cursor: 'pointer', 
-                            display: 'flex', 
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            background: '#0086e1', /* Azul claro da paleta do projeto */
-                            borderRadius: '16px',
-                            padding: '30px 25px',
-                            boxShadow: '0 10px 25px rgba(0, 134, 225, 0.3)',
-                            transition: 'all 0.3s ease'
-                        }}
-                        onMouseOver={e => e.currentTarget.style.transform = 'translateY(-5px)'}
-                        onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
-                    >
-                        <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.5px' }}>
-                            +4 <br/> {lang === 'pt' ? 'Mais' : 'More'}
-                        </h3>
-                        
-                        <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8rem', fontWeight: '500' }}>
-                            {lang === 'pt' ? 'Soluções Personalizadas' : 'Custom Solutions'}
-                        </span>
-                    </div>
-
                 </div>
             </div>
 

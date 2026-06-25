@@ -38,6 +38,20 @@ export default function Hero() {
 
             <div className="container responsive-hero-content" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1440px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                 
+                {/* Hero Badge */}
+                <span style={{
+                    color: 'var(--accent-cyan)',
+                    fontWeight: '700',
+                    letterSpacing: '2px',
+                    textTransform: 'uppercase',
+                    fontSize: '0.9rem',
+                    marginBottom: '15px',
+                    display: 'block',
+                    textShadow: '0 2px 5px rgba(0,0,0,0.5)'
+                }}>
+                    {t('hero_badge')}
+                </span>
+
                 {/* Main Headline (Massive, uppercase, bold) */}
                 <h1 className="responsive-hero-title" style={{
                     fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
@@ -50,18 +64,32 @@ export default function Hero() {
                     textShadow: '0 4px 15px rgba(0,0,0,0.6)'
                 }}>
                     {t('hero_title_1')} <br />
-                    {t('hero_title_2')}
+                    {t('hero_title_2')} <br />
+                    <span style={{ color: 'var(--accent-cyan)' }}>{t('hero_title_3')}</span>
                 </h1>
                 
                 {/* Thin Colored Separator Line */}
                 <div style={{
-                    width: '100%',
-                    height: '3px',
-                    backgroundColor: '#0086e1', /* Azul claro oficial */
-                    marginTop: '30px',
-                    marginBottom: '30px',
-                    boxShadow: '0 2px 5px rgba(0,0,0,0.3)'
+                    width: '60px', /* Reduced width to match modern design */
+                    height: '4px',
+                    backgroundColor: 'var(--accent-cyan)',
+                    marginTop: '25px',
+                    marginBottom: '25px',
+                    boxShadow: '0 2px 5px rgba(0,242,254,0.3)',
+                    borderRadius: '2px'
                 }}></div>
+
+                {/* Hero Description */}
+                <p style={{
+                    fontSize: '1.2rem',
+                    lineHeight: '1.6',
+                    maxWidth: '650px',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    marginBottom: '40px',
+                    textShadow: '0 2px 5px rgba(0,0,0,0.5)'
+                }}>
+                    {t('hero_desc')}
+                </p>
 
                 {/* Solid Industrial Button */}
                 <a className="responsive-hero-button" href="#servicos" style={{
