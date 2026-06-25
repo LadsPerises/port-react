@@ -59,8 +59,8 @@ export default function Quote() {
             <div style={{
                 position: 'relative',
                 paddingTop: '160px',
-                paddingBottom: '80px',
-                background: '#020b1e', // Dark premium blue
+                paddingBottom: '160px',
+                background: '#020b1e',
                 overflow: 'hidden',
                 color: '#fff'
             }}>
@@ -86,7 +86,7 @@ export default function Quote() {
                 </div>
             </div>
 
-            <div className="container responsive-overlap-container" style={{ maxWidth: '1440px', margin: '-40px auto 100px', padding: '0 5%', position: 'relative', zIndex: 10 }}>
+            <div className="container responsive-overlap-container" style={{ maxWidth: '1440px', margin: '-80px auto 100px', padding: '0 5%', position: 'relative', zIndex: 100 }}>
                 <div className="responsive-quote-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '60px', alignItems: 'flex-start' }}>
                     
                     {/* Left Column: Value Proposition */}

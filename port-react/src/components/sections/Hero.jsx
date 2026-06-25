@@ -92,26 +92,30 @@ export default function Hero() {
                 </p>
 
                 {/* Solid Industrial Button */}
-                <a className="responsive-hero-button" href="#servicos" style={{
-                    display: 'inline-block',
-                    background: '#0086e1', /* Azul claro oficial */
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    textTransform: 'uppercase',
-                    padding: '16px 40px',
-                    textDecoration: 'none',
-                    fontSize: '1.05rem',
-                    letterSpacing: '2px',
-                    transition: 'all 0.3s ease',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 15px rgba(0, 134, 225, 0.4)'
-                }}
-                onMouseOver={e => e.target.style.background = '#143c79'} /* Azul escuro no hover */
-                onMouseOut={e => e.target.style.background = '#0086e1'}
+                <button
+                    className="responsive-hero-button"
+                    onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
+                    style={{
+                        display: 'inline-block',
+                        background: '#0086e1',
+                        color: '#ffffff',
+                        fontWeight: '800',
+                        textTransform: 'uppercase',
+                        padding: '16px 40px',
+                        textDecoration: 'none',
+                        fontSize: '1.05rem',
+                        letterSpacing: '2px',
+                        transition: 'all 0.3s ease',
+                        border: 'none',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 15px rgba(0, 134, 225, 0.4)',
+                        borderRadius: '0'
+                    }}
+                    onMouseOver={e => e.currentTarget.style.background = '#143c79'}
+                    onMouseOut={e => e.currentTarget.style.background = '#0086e1'}
                 >
                     {t('hero_btn_explore')}
-                </a>
+                </button>
             </div>
         </section>
     );
