@@ -51,7 +51,7 @@ export default function Legislation() {
 
     return (
         <section id="legislacao" style={{ padding: '120px 0', background: 'var(--bg-main)' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
+            <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%' }}>
                 
                 {/* Header Minimalista (Alinhado à esquerda) */}
                 <div style={{ marginBottom: '60px', maxWidth: '800px' }}>

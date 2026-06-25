@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../../contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 import { FaCompass, FaAnchor, FaBoxes, FaWarehouse, FaShip, FaIndustry, FaTimes, FaInfoCircle } from 'react-icons/fa';
 
 export default function Services() {
     const { t, lang } = useTranslation();
+    const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
     const [activeService, setActiveService] = useState(null);
 
@@ -44,13 +46,13 @@ export default function Services() {
     };
 
     const openModal = (id) => {
-        setActiveService(servicesData[id]);
+        setActiveService({ id, ...servicesData[id] });
         setModalOpen(true);
     };
 
     return (
         <section id="servicos" style={{ padding: '120px 0', background: 'var(--bg-main)', position: 'relative', overflow: 'hidden' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%', position: 'relative', zIndex: 2 }}>
+            <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%', position: 'relative', zIndex: 2 }}>
                 
                 {/* Centered Header imitating the reference */}
                 <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px' }}>
@@ -155,23 +157,23 @@ export default function Services() {
             {/* Modal remains mostly the same, just adapted to light theme */}
             {modalOpen && activeService && (
                 <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.7)', backdropFilter: 'blur(5px)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-                    <div style={{ background: '#ffffff', padding: '40px', borderRadius: '16px', maxWidth: '600px', width: '100%', position: 'relative', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}>
-                        <button onClick={() => setModalOpen(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: '#f1f5f9', border: 'none', color: '#475569', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.background='#e2e8f0'} onMouseOut={e => e.currentTarget.style.background='#f1f5f9'}>
+                    <div style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '16px', maxWidth: '600px', width: '100%', position: 'relative', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}>
+                        <button onClick={() => setModalOpen(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--bg-main)', border: 'none', color: 'var(--text-secondary)', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color='var(--text-primary)'} onMouseOut={e => e.currentTarget.style.color='var(--text-secondary)'}>
                             <FaTimes />
                         </button>
                         
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-                            <FaInfoCircle size="1.8em" color="#0086e1" />
-                            <h3 style={{ fontSize: '1.6rem', fontWeight: '700', color: '#0f172a', letterSpacing: '-0.5px', margin: 0 }}>
+                            <FaInfoCircle size="1.8em" color="var(--primary)" />
+                            <h3 style={{ fontSize: '1.6rem', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '-0.5px', margin: 0 }}>
                                 {activeService[lang].title}
                             </h3>
                         </div>
                         
-                        <p style={{ color: '#475569', lineHeight: '1.8', fontSize: '1.05rem', marginBottom: '35px' }}>
+                        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.05rem', marginBottom: '35px' }}>
                             {activeService[lang].desc}
                         </p>
                         
-                        <button className="btn btn-primary" onClick={() => setModalOpen(false)} style={{ width: '100%', padding: '15px', borderRadius: '8px', fontSize: '1rem' }}>
+                        <button className="btn btn-primary" onClick={() => { setModalOpen(false); navigate('/cotacao', { state: { serviceId: activeService?.id } }); }} style={{ width: '100%', padding: '15px', borderRadius: '8px', fontSize: '1rem', background: 'var(--primary)', color: '#fff', border: 'none', cursor: 'pointer' }}>
                             {t('modal_contact')}
                         </button>
                     </div>

@@ -30,7 +30,7 @@ export default function Contacts() {
 
     return (
         <section id="contactos" style={{ padding: '120px 0', background: 'var(--bg-card)' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
+            <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%' }}>
                 
                 {/* Header Minimalista */}
                 <div style={{ marginBottom: '60px', maxWidth: '800px' }}>

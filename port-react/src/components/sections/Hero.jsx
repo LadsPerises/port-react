@@ -11,11 +11,11 @@ export default function Hero() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end', /* Aligned to bottom like reference */
-            alignItems: 'flex-start',
+            alignItems: 'center',
             textAlign: 'left',
             color: '#fff',
             overflow: 'hidden',
-            padding: '0 5% 80px 5%' /* Padding at the bottom */
+            padding: '0 0 80px 0' /* Padding at the bottom */
         }}>
             {/* Fullscreen Background Image */}
             <div style={{
@@ -36,7 +36,7 @@ export default function Hero() {
                 zIndex: -1
             }}></div>
 
-            <div className="container" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1000px', margin: 0 }}>
+            <div className="container" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1440px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                 
                 {/* Main Headline (Massive, uppercase, bold) */}
                 <h1 style={{

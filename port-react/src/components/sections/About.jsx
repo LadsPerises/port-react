@@ -6,7 +6,7 @@ export default function About() {
 
     return (
         <section id="quem-somos" style={{ padding: '120px 0', background: 'var(--bg-main)', color: 'var(--text-primary)' }}>
-            <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
+            <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%' }}>
                 
                 {/* 2-Column Main Layout (Text Left | Image+Grid Right) */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', alignItems: 'stretch' }}>
@@ -69,7 +69,7 @@ export default function About() {
                             display: 'flex'
                         }}>
                             <img 
-                                src="/images/about_office.png" 
+                                src="/images/ChatGPT Image 24_06_2026, 20_41_11.png" 
                                 alt="Administração do Porto do Soyo" 
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
