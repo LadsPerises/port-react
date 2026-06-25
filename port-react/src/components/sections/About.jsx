@@ -9,10 +9,10 @@ export default function About() {
             <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%' }}>
                 
                 {/* 2-Column Main Layout (Text Left | Image+Grid Right) */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', alignItems: 'stretch' }}>
+                <div className="responsive-about-layout" style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', alignItems: 'stretch' }}>
                     
                     {/* Left Column: Text Content + Stats Grid */}
-                    <div style={{ flex: '1.2 1 550px', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingRight: '30px' }}>
+                    <div className="responsive-about-copy" style={{ flex: '1.2 1 550px', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingRight: '30px' }}>
                         <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem', marginBottom: '20px', display: 'block' }}>
                             {t('about_tag')}
                         </span>
@@ -26,7 +26,7 @@ export default function About() {
                         </div>
 
                         {/* Bottom 2x2 Grid (Stats / Highlights) - Moved to Left */}
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
+                        <div className="responsive-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                             
                             {/* Card 1 */}
                             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxShadow: 'var(--shadow)' }}>
@@ -56,10 +56,10 @@ export default function About() {
                     </div>
 
                     {/* Right Column: Image only */}
-                    <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column' }}>
+                    <div className="responsive-about-media" style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column' }}>
                         
                         {/* Top Image */}
-                        <div style={{ 
+                        <div className="responsive-image-frame" style={{ 
                             width: '100%', 
                             height: '100%', 
                             minHeight: '400px',

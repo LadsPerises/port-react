@@ -63,10 +63,10 @@ export default function Legislation() {
                     </h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
+                <div className="responsive-legislation-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
                     
                     {/* Item 1: Sem cartão fechado, design de lista/artigo moderno */}
-                    <div style={{ display: 'flex', gap: '25px', padding: '15px 0' }}>
+                    <div className="responsive-icon-row" style={{ display: 'flex', gap: '25px', padding: '15px 0' }}>
                         <div style={{ flexShrink: 0, width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(0, 134, 225, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <FaFilePdf size="1.8em" color="var(--primary)" />
                         </div>
@@ -88,7 +88,7 @@ export default function Legislation() {
                     </div>
 
                     {/* Item 2 */}
-                    <div style={{ display: 'flex', gap: '25px', padding: '15px 0' }}>
+                    <div className="responsive-icon-row" style={{ display: 'flex', gap: '25px', padding: '15px 0' }}>
                         <div style={{ flexShrink: 0, width: '60px', height: '60px', borderRadius: '12px', background: 'rgba(0, 134, 225, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <FaGavel size="1.8em" color="var(--primary)" />
                         </div>
@@ -113,8 +113,8 @@ export default function Legislation() {
 
             {/* Modal de PDF - Renovado para o Light Theme */}
             {modalOpen && activeDoc && (
-                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-                    <div style={{ background: '#ffffff', borderRadius: '16px', width: '100%', maxWidth: '800px', height: '85vh', display: 'flex', flexDirection: 'column', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+                <div className="responsive-modal-backdrop" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+                    <div className="responsive-modal-panel responsive-document-modal" style={{ background: '#ffffff', borderRadius: '16px', width: '100%', maxWidth: '800px', height: '85vh', display: 'flex', flexDirection: 'column', position: 'relative', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
                         
                         {/* Modal Header */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '25px 30px', borderBottom: '1px solid var(--border-color)' }}>
@@ -128,7 +128,7 @@ export default function Legislation() {
                         </div>
                         
                         {/* Modal Content / Paper */}
-                        <div style={{ flex: 1, overflowY: 'auto', padding: '40px 50px', background: '#ffffff' }}>
+                        <div className="responsive-document-body" style={{ flex: 1, overflowY: 'auto', padding: '40px 50px', background: '#ffffff' }}>
                             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
                                 <h4 style={{ color: 'var(--text-primary)', margin: '0 0 5px 0', fontSize: '1.1rem' }}>REPÚBLICA DE ANGOLA</h4>
                                 <h5 style={{ color: 'var(--text-secondary)', margin: 0, fontWeight: '500' }}>MINISTÉRIO DOS TRANSPORTES</h5>

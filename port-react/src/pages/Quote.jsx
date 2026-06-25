@@ -86,11 +86,11 @@ export default function Quote() {
                 </div>
             </div>
 
-            <div className="container" style={{ maxWidth: '1440px', margin: '-40px auto 100px', padding: '0 5%', position: 'relative', zIndex: 10 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '60px', alignItems: 'flex-start' }}>
+            <div className="container responsive-overlap-container" style={{ maxWidth: '1440px', margin: '-40px auto 100px', padding: '0 5%', position: 'relative', zIndex: 10 }}>
+                <div className="responsive-quote-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '60px', alignItems: 'flex-start' }}>
                     
                     {/* Left Column: Value Proposition */}
-                    <div style={{ background: 'var(--bg-card)', padding: '50px', borderRadius: '24px', boxShadow: 'var(--shadow)', border: '1px solid var(--border-color)' }}>
+                    <div className="responsive-panel" style={{ background: 'var(--bg-card)', padding: '50px', borderRadius: '24px', boxShadow: 'var(--shadow)', border: '1px solid var(--border-color)' }}>
                         <h2 style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '30px', letterSpacing: '-0.5px' }}>
                             {lang === 'pt' ? 'Porquê Escolher o Porto do Soyo?' : 'Why Choose Port of Soyo?'}
                         </h2>
@@ -134,7 +134,7 @@ export default function Quote() {
                     </div>
 
                     {/* Right Column: Premium Form */}
-                    <div style={{ background: 'var(--bg-card)', padding: '50px', borderRadius: '24px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', border: '1px solid var(--border-color)', position: 'relative', top: '-80px' }}>
+                    <div className="responsive-panel responsive-quote-form" style={{ background: 'var(--bg-card)', padding: '50px', borderRadius: '24px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', border: '1px solid var(--border-color)', position: 'relative', top: '-80px' }}>
                         
                         <h2 style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '10px', letterSpacing: '-0.5px' }}>
                             {lang === 'pt' ? 'Solicitar Cotação' : 'Request a Quote'}
@@ -157,7 +157,7 @@ export default function Quote() {
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', alignItems: 'end' }}>
+                                <div className="responsive-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', alignItems: 'end' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                                         <label style={labelStyle}>{lang === 'pt' ? 'Nome / Responsável' : 'Name / Contact'}</label>
                                         <input type="text" required style={inputStyle} onFocus={e => {e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(0, 134, 225, 0.1)'}} onBlur={e => {e.target.style.borderColor = 'var(--border-color)'; e.target.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.02)'}} />
@@ -168,7 +168,7 @@ export default function Quote() {
                                     </div>
                                 </div>
                                 
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', alignItems: 'end' }}>
+                                <div className="responsive-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', alignItems: 'end' }}>
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                                         <label style={labelStyle}>{lang === 'pt' ? 'E-mail' : 'Email'}</label>
                                         <input type="email" required style={inputStyle} onFocus={e => {e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = '0 0 0 3px rgba(0, 134, 225, 0.1)'}} onBlur={e => {e.target.style.borderColor = 'var(--border-color)'; e.target.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.02)'}} />

@@ -42,7 +42,7 @@ export default function Contacts() {
                     </h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', marginBottom: '80px' }}>
+                <div className="responsive-contact-layout" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', marginBottom: '80px' }}>
                     
                     {/* Informações de Contacto */}
                     <div>
@@ -93,7 +93,7 @@ export default function Contacts() {
                     <div>
                         <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '25px' }}>{t('form_title')}</h3>
                         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                            <div className="responsive-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '5px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>{t('form_name')}</label>
                                     <input type="text" required style={inputStyle} onFocus={e => e.target.style.borderColor = 'var(--primary)'} onBlur={e => e.target.style.borderColor = 'var(--border-color)'} />
@@ -124,8 +124,8 @@ export default function Contacts() {
                 </div>
                 
                 {/* Real Google Map Embed */}
-                <div style={{ background: '#e0f2fe', borderRadius: '16px', position: 'relative', overflow: 'hidden', height: '350px' }}>
-                    <div style={{ position: 'absolute', top: '30px', left: '30px', background: '#ffffff', padding: '20px', borderRadius: '12px', zIndex: 10, boxShadow: 'var(--shadow)', maxWidth: '280px', pointerEvents: 'none' }}>
+                <div className="responsive-map" style={{ background: '#e0f2fe', borderRadius: '16px', position: 'relative', overflow: 'hidden', height: '350px' }}>
+                    <div className="responsive-map-card" style={{ position: 'absolute', top: '30px', left: '30px', background: '#ffffff', padding: '20px', borderRadius: '12px', zIndex: 10, boxShadow: 'var(--shadow)', maxWidth: '280px', pointerEvents: 'none' }}>
                         <h4 style={{ margin: '0 0 8px 0', color: 'var(--text-primary)', fontSize: '1.1rem' }}>{t('map_title')}</h4>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>{t('map_desc')}</p>
                     </div>

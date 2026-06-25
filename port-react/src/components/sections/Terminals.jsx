@@ -57,10 +57,10 @@ export default function Terminals() {
                     </h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
+                <div className="responsive-terminals-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
                     
                     {/* Lista de Terminais (Apenas texto limpo, sem caixas) */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div className="responsive-terminal-tabs" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         {terminalsData.map((term, idx) => (
                             <button 
                                 key={idx} 
@@ -102,7 +102,7 @@ export default function Terminals() {
                             {activeTerminal.desc[lang]}
                         </p>
                         
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
+                        <div className="responsive-terminal-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
                             <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '15px' }}>
                                 <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>{t('t_draft')}</span>
                                 <p style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-primary)', margin: 0 }}>{activeTerminal.draft}</p>

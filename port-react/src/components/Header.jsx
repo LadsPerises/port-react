@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedinIn, FaFacebookF, FaSearch } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { useTranslation } from '../contexts/LanguageContext';
+import logoWhite from '../assets/LogoWhite.png';
 
 export default function Header() {
     const { lang, setLang, t } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -15,7 +17,10 @@ export default function Header() {
     const toggleLang = (e) => {
         e.preventDefault();
         setLang(lang === 'pt' ? 'en' : 'pt');
+        setMenuOpen(false);
     };
+
+    const closeMenu = () => setMenuOpen(false);
 
     return (
         <header style={{
@@ -29,7 +34,7 @@ export default function Header() {
             color: scrolled ? 'var(--text-primary)' : '#fff',
             backdropFilter: scrolled ? 'blur(10px)' : 'none'
         }}>
-            <div className="container" style={{
+            <div className={`container header-container ${menuOpen ? 'open' : ''}`} style={{
                 maxWidth: '1440px',
                 margin: '0 auto',
                 padding: '0 5%',
@@ -40,26 +45,51 @@ export default function Header() {
             }}>
                 {/* Logo on the left */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <svg viewBox="0 0 100 100" width="40" height="40" style={{ filter: scrolled ? 'none' : 'drop-shadow(0 0 5px rgba(255, 255, 255, 0.4))' }}>
-                        <circle cx="50" cy="50" r="45" fill="none" stroke={scrolled ? 'var(--primary)' : '#fff'} strokeWidth="4" />
-                        <path d="M50,15 L50,80 M30,60 L70,60 M30,40 C35,25 65,25 70,40 M20,50 C35,55 65,55 80,50" fill="none" stroke={scrolled ? 'var(--primary)' : '#fff'} strokeWidth="4" strokeLinecap="round" />
-                        <circle cx="50" cy="50" r="8" fill={scrolled ? 'var(--primary)' : '#fff'} />
-                    </svg>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <span style={{ fontWeight: 'bold', fontSize: '1.2rem', letterSpacing: '1px', lineHeight: 1, color: scrolled ? 'var(--text-primary)' : '#fff' }}>PORTO DO SOYO</span>
-                        <span style={{ fontSize: '0.7rem', letterSpacing: '1px', opacity: 0.8, color: scrolled ? 'var(--text-secondary)' : '#fff' }}>EMPRESA PORTUÁRIA</span>
+                    <div style={{
+                        width: '52px',
+                        height: '52px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '10px',
+                        background: scrolled ? 'var(--primary)' : 'transparent',
+                        padding: scrolled ? '6px' : '0',
+                        transition: 'all 0.3s ease',
+                        filter: scrolled ? 'none' : 'drop-shadow(0 0 5px rgba(255, 255, 255, 0.4))'
+                    }}>
+                        <img
+                            src={logoWhite}
+                            alt="Porto do Soyo, EP"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                display: 'block'
+                            }}
+                        />
                     </div>
                 </div>
 
+                <button
+                    className="mobile-menu-toggle"
+                    type="button"
+                    aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+                    aria-expanded={menuOpen}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    {menuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+
                 {/* Right Navigation */}
-                <nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <ul style={{ display: 'flex', gap: '25px', listStyle: 'none', margin: 0, padding: 0 }}>
-                        <li><a href="/#inicio" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_home')}</a></li>
-                        <li><a href="/#servicos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_serv')}</a></li>
-                        <li><a href="/#quem-somos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_about')}</a></li>
-                        <li><a href="/noticias" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>Notícias & Media</a></li>
-                        <li><a href="/#terminais" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>Sistemas de Informação</a></li>
-                        <li><a href="/#contactos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_cont')}</a></li>
+                <nav className="site-nav" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <ul className="site-nav-list" style={{ display: 'flex', gap: '25px', listStyle: 'none', margin: 0, padding: 0 }}>
+                        <li><a onClick={closeMenu} href="/#inicio" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_home')}</a></li>
+                        <li><a onClick={closeMenu} href="/#servicos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_serv')}</a></li>
+                        <li><a onClick={closeMenu} href="/#quem-somos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_about')}</a></li>
+                        <li><a onClick={closeMenu} href="/noticias" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>Notícias & Media</a></li>
+                        <li><a onClick={closeMenu} href="/#terminais" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>Sistemas de Informação</a></li>
+                        <li><a onClick={closeMenu} href="/#contactos" style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--primary)'} onMouseOut={e => e.target.style.color = scrolled ? 'var(--text-primary)' : '#fff'}>{t('f_link_cont')}</a></li>
+                        <li><a href="#" onClick={toggleLang} style={{ color: scrolled ? 'var(--text-primary)' : '#fff', textDecoration: 'none', fontWeight: '800', fontSize: '0.95rem', whiteSpace: 'nowrap', transition: 'color 0.2s' }}>{lang === 'pt' ? 'EN' : 'PT'}</a></li>
                     </ul>
                 </nav>
             </div>

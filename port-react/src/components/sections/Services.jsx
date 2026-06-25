@@ -65,7 +65,7 @@ export default function Services() {
                 </div>
 
                 {/* 4-Column Grid imitating the reference */}
-                <div style={{ 
+                <div className="responsive-services-grid" style={{ 
                     display: 'grid', 
                     gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
                     gap: '20px' 
@@ -73,6 +73,7 @@ export default function Services() {
                     {/* The 6 Real Services */}
                     {services.map(srv => (
                         <div 
+                            className="responsive-service-card"
                             key={srv.id} 
                             onClick={() => openModal(srv.id)} 
                             style={{ 
@@ -127,6 +128,7 @@ export default function Services() {
 
                     {/* Solid Action Card (8th slot mapped to project palette) */}
                     <div 
+                        className="responsive-service-card responsive-service-cta"
                         onClick={() => document.getElementById('contactos')?.scrollIntoView({ behavior: 'smooth' })}
                         style={{ 
                             cursor: 'pointer', 
@@ -156,8 +158,8 @@ export default function Services() {
 
             {/* Modal remains mostly the same, just adapted to light theme */}
             {modalOpen && activeService && (
-                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.7)', backdropFilter: 'blur(5px)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-                    <div style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '16px', maxWidth: '600px', width: '100%', position: 'relative', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}>
+                <div className="responsive-modal-backdrop" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.7)', backdropFilter: 'blur(5px)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+                    <div className="responsive-modal-panel" style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '16px', maxWidth: '600px', width: '100%', position: 'relative', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }}>
                         <button onClick={() => setModalOpen(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--bg-main)', border: 'none', color: 'var(--text-secondary)', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color='var(--text-primary)'} onMouseOut={e => e.currentTarget.style.color='var(--text-secondary)'}>
                             <FaTimes />
                         </button>

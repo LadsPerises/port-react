@@ -124,9 +124,9 @@ export default function News() {
 
             {/* Filters & Search */}
             <div style={{ background: 'var(--bg-card)', borderBottom: '1px solid var(--border-color)', position: 'sticky', top: '80px', zIndex: 100 }}>
-                <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '20px', flexWrap: 'wrap', paddingTop: '16px', paddingBottom: '16px' }}>
+                <div className="responsive-news-filters" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '20px', flexWrap: 'wrap', paddingTop: '16px', paddingBottom: '16px' }}>
                     {/* Category Pills */}
-                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <div className="responsive-category-list" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                         {cats.map((cat, i) => (
                             <button
                                 key={i}
@@ -149,7 +149,7 @@ export default function News() {
                         ))}
                     </div>
                     {/* Search */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderRadius: '10px', padding: '10px 16px', minWidth: '250px' }}>
+                    <div className="responsive-news-search" style={{ display: 'flex', alignItems: 'center', gap: '10px', background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderRadius: '10px', padding: '10px 16px', minWidth: '250px' }}>
                         <FaSearch color="var(--text-muted)" />
                         <input
                             type="text"
@@ -172,14 +172,12 @@ export default function News() {
                     <>
                         {/* Featured Article */}
                         {featured && (
-                            <div style={{
+                            <div className="news-featured responsive-featured-news" style={{
                                 display: 'grid', gridTemplateColumns: '1fr 1fr',
                                 gap: '0', borderRadius: '20px', overflow: 'hidden',
                                 marginBottom: '50px', boxShadow: 'var(--shadow)',
                                 border: '1px solid var(--border-color)'
-                            }}
-                            className="news-featured"
-                            >
+                            }}>
                                 <div style={{ position: 'relative', minHeight: '450px', overflow: 'hidden' }}>
                                     <img src={featured.image} alt={featured.title[lang]}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -227,7 +225,7 @@ export default function News() {
 
                         {/* Grid of remaining articles */}
                         {rest.length > 0 && (
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '30px' }}>
+                            <div className="responsive-news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '30px' }}>
                                 {rest.map(article => (
                                     <article key={article.id} onClick={() => navigate(`/noticias/${article.id}`)} style={{
                                         background: 'var(--bg-card)',

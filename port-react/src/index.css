@@ -36,6 +36,296 @@
     --border-radius: 12px;
 }
 
+/* Responsive fixes for the current inline-styled React components */
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.responsive-service-card,
+.responsive-panel,
+.responsive-featured-news,
+.responsive-news-grid > article {
+    min-width: 0;
+}
+
+@media (max-width: 1180px) {
+    .site-nav-list {
+        gap: 14px !important;
+    }
+
+    .site-nav-list a {
+        font-size: 0.84rem !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    section {
+        scroll-margin-top: 86px;
+    }
+
+    .header-container {
+        position: relative;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
+    .site-nav {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 5%;
+        right: 5%;
+        display: block !important;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .header-container.open .site-nav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .site-nav-list {
+        flex-direction: column;
+        gap: 0 !important;
+        padding: 10px !important;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 18px 45px rgba(2, 11, 30, 0.16);
+        backdrop-filter: blur(14px);
+    }
+
+    .site-nav-list li {
+        width: 100%;
+    }
+
+    .site-nav-list a {
+        display: block;
+        width: 100%;
+        padding: 14px 12px;
+        color: var(--text-primary) !important;
+        white-space: normal !important;
+        border-radius: 8px;
+    }
+
+    .site-nav-list a:hover {
+        background: rgba(0, 134, 225, 0.08);
+    }
+
+    .responsive-about-layout,
+    .responsive-quote-layout,
+    .responsive-terminals-layout,
+    .responsive-article-layout {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+    }
+
+    .responsive-about-layout {
+        flex-direction: column;
+    }
+
+    .responsive-about-copy,
+    .responsive-about-media {
+        flex-basis: auto !important;
+        padding-right: 0 !important;
+        width: 100%;
+    }
+
+    .responsive-quote-form {
+        top: 0 !important;
+    }
+
+    .responsive-overlap-container {
+        margin-top: -24px !important;
+        margin-bottom: 72px !important;
+    }
+
+    .responsive-featured-news {
+        grid-template-columns: 1fr !important;
+    }
+
+    .responsive-article-sidebar {
+        position: static !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 14px 0 !important;
+    }
+
+    .responsive-hero {
+        height: auto !important;
+        min-height: 680px;
+        padding: 150px 0 56px !important;
+        justify-content: flex-end !important;
+    }
+
+    .responsive-hero-title {
+        font-size: clamp(2rem, 12vw, 3rem) !important;
+        letter-spacing: 0 !important;
+    }
+
+    .responsive-hero-button {
+        width: 100%;
+        text-align: center;
+        padding: 15px 18px !important;
+    }
+
+    .responsive-services-grid,
+    .responsive-legislation-grid,
+    .responsive-contact-layout,
+    .responsive-news-grid,
+    .responsive-terminal-stats,
+    .responsive-form-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .responsive-services-grid,
+    .responsive-legislation-grid,
+    .responsive-contact-layout {
+        gap: 28px !important;
+    }
+
+    .responsive-stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .responsive-image-frame {
+        min-height: 280px !important;
+    }
+
+    .responsive-terminal-tabs {
+        overflow-x: auto;
+        flex-direction: row !important;
+        gap: 18px !important;
+        padding-bottom: 8px;
+        scroll-snap-type: x proximity;
+    }
+
+    .responsive-terminal-tabs button {
+        min-width: 230px;
+        scroll-snap-align: start;
+    }
+
+    .responsive-news-filters {
+        align-items: stretch !important;
+    }
+
+    .responsive-category-list {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .responsive-category-list button {
+        white-space: nowrap;
+        flex: 0 0 auto;
+    }
+
+    .responsive-news-search {
+        min-width: 0 !important;
+        width: 100%;
+    }
+
+    .responsive-article-hero {
+        height: 620px !important;
+    }
+
+    .responsive-article-hero-content {
+        padding: 40px 5% !important;
+    }
+
+    .responsive-article-meta,
+    .responsive-share-row {
+        flex-wrap: wrap;
+        align-items: flex-start !important;
+    }
+
+    .responsive-panel,
+    .responsive-modal-panel {
+        padding: 28px !important;
+        border-radius: 16px !important;
+    }
+
+    .responsive-modal-backdrop {
+        align-items: flex-end !important;
+        padding: 12px !important;
+    }
+
+    .responsive-document-modal {
+        height: 92vh !important;
+    }
+
+    .responsive-document-body {
+        padding: 28px 22px !important;
+    }
+
+    .responsive-map {
+        height: 420px !important;
+    }
+
+    .responsive-map-card {
+        top: 16px !important;
+        left: 16px !important;
+        right: 16px !important;
+        max-width: none !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    section {
+        padding-top: 72px !important;
+        padding-bottom: 72px !important;
+    }
+
+    .responsive-stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .responsive-icon-row {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .responsive-news-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .responsive-panel,
+    .responsive-modal-panel {
+        padding: 22px !important;
+    }
+
+    .responsive-article-hero {
+        height: 680px !important;
+    }
+
+    .responsive-share-row button {
+        flex: 1 1 auto;
+    }
+}
+
 /* ==========================================================================
    RESET & CONFIGURAÇÕES GERAIS
    ========================================================================== */

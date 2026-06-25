@@ -5,7 +5,7 @@ export default function Hero() {
     const { t } = useTranslation();
 
     return (
-        <section id="inicio" style={{
+        <section id="inicio" className="responsive-hero" style={{
             position: 'relative',
             height: '100vh',
             display: 'flex',
@@ -36,10 +36,10 @@ export default function Hero() {
                 zIndex: -1
             }}></div>
 
-            <div className="container" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1440px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
+            <div className="container responsive-hero-content" style={{ zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '1440px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                 
                 {/* Main Headline (Massive, uppercase, bold) */}
-                <h1 style={{
+                <h1 className="responsive-hero-title" style={{
                     fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
                     fontWeight: '900',
                     lineHeight: '1.1',
@@ -64,7 +64,7 @@ export default function Hero() {
                 }}></div>
 
                 {/* Solid Industrial Button */}
-                <a href="#servicos" style={{
+                <a className="responsive-hero-button" href="#servicos" style={{
                     display: 'inline-block',
                     background: '#0086e1', /* Azul claro oficial */
                     color: '#ffffff',

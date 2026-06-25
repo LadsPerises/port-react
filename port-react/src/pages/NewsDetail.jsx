@@ -339,16 +339,16 @@ export default function NewsDetail() {
         <main style={{ background: 'var(--bg-main)', minHeight: '100vh' }}>
 
             {/* Hero Image */}
-            <div style={{ position: 'relative', height: '520px', overflow: 'hidden' }}>
+            <div className="responsive-article-hero" style={{ position: 'relative', height: '520px', overflow: 'hidden' }}>
                 <img src={article.image} alt={article.title[lang]}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 <div style={{
                     position: 'absolute', inset: 0,
                     background: 'linear-gradient(to bottom, rgba(2,11,30,0.3) 0%, rgba(2,11,30,0.85) 100%)'
                 }}></div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '50px 5%', maxWidth: '1440px', margin: '0 auto' }}>
+                <div className="responsive-article-hero-content" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '50px 5%', maxWidth: '1440px', margin: '0 auto' }}>
                     <div style={{ maxWidth: '900px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+                        <div className="responsive-article-meta" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                             <span style={{ background: 'var(--primary)', color: '#fff', padding: '5px 14px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 <FaTag style={{ marginRight: '6px', fontSize: '0.7rem' }} />{article.category[lang]}
                             </span>
@@ -369,7 +369,7 @@ export default function NewsDetail() {
 
             {/* Article Body */}
             <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 5%' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '60px', paddingTop: '60px', paddingBottom: '80px', alignItems: 'flex-start' }}>
+                <div className="responsive-article-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '60px', paddingTop: '60px', paddingBottom: '80px', alignItems: 'flex-start' }}>
 
                     {/* Main Article Text */}
                     <article>
@@ -392,7 +392,7 @@ export default function NewsDetail() {
                         <div>{renderContent(article.content[lang])}</div>
 
                         {/* Share */}
-                        <div style={{ marginTop: '50px', paddingTop: '30px', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <div className="responsive-share-row" style={{ marginTop: '50px', paddingTop: '30px', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '15px' }}>
                             <span style={{ color: 'var(--text-secondary)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 <FaShare /> {lang === 'pt' ? 'Partilhar:' : 'Share:'}
                             </span>
@@ -407,7 +407,7 @@ export default function NewsDetail() {
                     </article>
 
                     {/* Sidebar */}
-                    <aside style={{ position: 'sticky', top: '120px' }}>
+                    <aside className="responsive-article-sidebar" style={{ position: 'sticky', top: '120px' }}>
                         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '20px', padding: '30px', marginBottom: '30px', boxShadow: 'var(--shadow)' }}>
                             <h4 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 {lang === 'pt' ? 'Outros Artigos' : 'More Articles'}
